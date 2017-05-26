@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Get TfL collisions Function\n#'\n#' This function returns a dataframe of collisions in London\n#' This dataset contains car park names, state (giving an indication of whether it is open or closed), capacity and real-time occupancy for selected car parks in the districts of Manchester, Stockport and Wigan only.\n#' Metrolink Park & Ride sites will be available shortly.\n#' Function also exracts longitude and latitude into separate columns from WKT column\n#' @param year the year for which you want to retreive collisions data for\n#' @param readpath the path where you saved the file with the api key, defaults to working directory\n#' @param isFirewall specify if you are behind a corporate firewall that might cause issues. Defaults to FALSE\n#' @keywords transport, api, uk, tfl, collisions\n#' @export\n#' @examples\n#' collisions_df <- get_tfl_collisions(\"2015\")\n\nget_tfl_collisions <- function(year, readpath = getwd(), isFirewall=FALSE){\n\n  filename <- paste0(readpath, \"/\", \"tflkey.txt\")\n  api_auth <-readChar(filename, file.info(filename)$size)\n  query_string <- paste0(\"https://api.tfl.gov.uk/AccidentStats/\", year, \"?\", api_auth)\n\n  if(isFirewall==TRUE){\n    l = readLines(queryString, encoding=\"UTF-8\", warn=FALSE)\n  } else {\n    l = query_string\n  }\n\n  #get the data\n  d = fromJSON(l)\n  accidents <- data.frame(lapply(as.data.frame(d), as.character), stringsAsFactors=FALSE)\n\n  #also make sure data is in date format\n  accidents$date2 <- as.Date(accidents$date, \"%Y-%m-%d\")\n\n  return(accidents)\n\n}\n",
+    "created" : 1495804605164.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2321090985",
+    "id" : "6DC6A22F",
+    "lastKnownWriteTime" : 1495805287,
+    "last_content_update" : 1495805287077,
+    "path" : "~/Desktop/transportR/transportR/R/get_tfl_collisions.R",
+    "project_path" : "R/get_tfl_collisions.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

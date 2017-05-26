@@ -1,0 +1,14 @@
+Package: transportR
+Type: Package
+Title: Read data from UK transport APIs into R dataframes
+Version: 0.1.0
+Author: Reka Solymosi (@r_solymosi) 
+Maintainer: The package maintainer <maczokni@gmail.com>
+Description: This package is meant to make getting data from UK transport APIs into R easier. 
+License: What license is it under?
+Encoding: UTF-8
+LazyData: TRUE
+Imports:
+    httr,
+    jsonlite
+RoxygenNote: 6.0.1.9000

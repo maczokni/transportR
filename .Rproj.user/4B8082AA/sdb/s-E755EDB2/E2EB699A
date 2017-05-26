@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Save key Function\n#'\n#' This function allows you to save your api key to a .txt file, which you can read it from in the other functions.\n#' @param org code of transport authority the key is for (tfl for Transport for London, tfgm for Transport for Greater Manchester)\n#' @param app_key the API key for your application\n#' @param app_id the API id for your application (TfL only)\n#' @param writepath the path where you want to save the file, defaults to working directory\n#' @keywords transport, api, uk\n#' @export\n#' @examples\n#' save_key(\"tfl\", \"0f2fd687\", \"6c23ac1o45cfec9hhd6bf32b393a84do3\") #these are not real api key/id values\n\nsave_key <- function(org, app_key, app_id = NULL, writepath = getwd()){\n\n  if(tolower(org)==\"tfl\"){\n\n    if(!is.null(app_id)){\n      outFile <- paste0(\"app_id=\", app_id, \"&app_key=\", app_key)\n    } else{\n      stop(\"You need an app id as well as the app key for tfl!\")\n    }\n\n  } else if(tolower(org)==\"tfgm\") {\n\n    outFile <- app_key\n\n  } else {\n    stop(\"The org you entered is not currently supported. Current options are : tfl, tfgm.\")\n  }\n\n  write(outFile,\n        file = paste0(writepath, \"/\", tolower(org), \"key.txt\"))\n}\n\n\n",
+    "created" : 1495798874542.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1671900787",
+    "id" : "E2EB699A",
+    "lastKnownWriteTime" : 1495802446,
+    "last_content_update" : 1495802446067,
+    "path" : "~/Desktop/transportR/transportR/R/save_key.R",
+    "project_path" : "R/save_key.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

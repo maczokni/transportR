@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: transportR\nType: Package\nTitle: Read data from UK transport APIs into R dataframes\nVersion: 0.1.0\nAuthor: Reka Solymosi (@r_solymosi) \nMaintainer: The package maintainer <maczokni@gmail.com>\nDescription: This package is meant to make getting data from UK transport APIs into R easier. \nLicense: What license is it under?\nEncoding: UTF-8\nLazyData: TRUE\nImports:\n    httr,\n    jsonlite\nRoxygenNote: 6.0.1.9000\n",
+    "created" : 1495802656240.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3663692845",
+    "id" : "C5847C09",
+    "lastKnownWriteTime" : 1495806049,
+    "last_content_update" : 1495806049917,
+    "path" : "~/Desktop/transportR/transportR/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}
